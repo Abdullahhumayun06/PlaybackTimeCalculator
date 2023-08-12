@@ -15,4 +15,21 @@ HoursAfter =  round(TotalSecsAfter // 3600)
 MinsAfter = round((TotalSecsAfter // 60) - (HoursAfter * 60))
 SecsAfter = round(TotalSecsAfter - ((HoursAfter * 3600) + (MinsAfter * 60)))
 
-print(f"Your video playback time after changing the speed is {HoursAfter} hours, {MinsAfter} minutes and {SecsAfter} seconds")
+# This next section is to make the results more "human-like". This is by not mentioning a variable if it doesn't have a value.
+# E.g. If the result is of (in format HH:MM:SS), 00:16:06. it will say 16 minutes and 6 seconds instead of 0 hours, 16 minutes and 06 seconds. 
+if HoursAfter > 0 and MinsAfter > 0 and SecsAfter > 0:
+    print(f"Your video playback time after changing the speed is {HoursAfter} hours, {MinsAfter} minutes and {SecsAfter} seconds.")
+elif HoursAfter == 0 and MinsAfter > 0 and SecsAfter > 0:
+    print(f"Your video playback time after changing the speed is {MinsAfter} minutes and {SecsAfter} seconds.")
+elif HoursAfter > 0 and MinsAfter == 0 and SecsAfter > 0:
+    print(f"Your video playback time after changing the speed is {HoursAfter} hours and {SecsAfter} seconds.")
+elif HoursAfter > 0 and MinsAfter > 0 and SecsAfter == 0:
+    print(f"Your video playback time after changing the speed is {HoursAfter} hours and {MinsAfter} minutes.")
+elif HoursAfter == 0 and MinsAfter == 0 and SecsAfter > 0:
+    print(f"Your video playback time after changing the speed is {SecsAfter} seconds.")
+elif HoursAfter == 0 and MinsAfter > 0 and SecsAfter == 0:
+    print(f"Your video playback time after changing the speed is {MinsAfter} minutes.")
+elif HoursAfter > 0 and MinsAfter == 0 and SecsAfter == 0:
+    print(f"Your video playback time after changing the speed is {HoursAfter} hours.")
+else:
+    print("Invalid values. Please try again.")
